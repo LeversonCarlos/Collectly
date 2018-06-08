@@ -1,0 +1,9 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/Collectly.Server/.vs
+/Collectly.Server/Collectly.API/bin
+/Collectly.Server/Collectly.API/obj
+/Collectly.Server/Collectly.Identity/bin
+/Collectly.Server/Collectly.Identity/obj
