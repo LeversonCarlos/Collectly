@@ -8,6 +8,9 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Collectly.Identity", "Collectly.Identity\Collectly.Identity.csproj", "{92C35175-7DC7-4CBE-A689-D722293441F6}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Collectly.Client", "Collectly.Client\Collectly.Client.csproj", "{6E3A57DE-14F0-4C65-8F42-E67075A4C4D2}"
+	ProjectSection(ProjectDependencies) = postProject
+		{92C35175-7DC7-4CBE-A689-D722293441F6} = {92C35175-7DC7-4CBE-A689-D722293441F6}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

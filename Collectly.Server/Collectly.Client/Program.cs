@@ -9,7 +9,10 @@ namespace Collectly.Test
    class Program
    {
 
-      public static void Main(string[] args) => MainAsync().GetAwaiter().GetResult();
+      public static void Main(string[] args) {
+         MainAsync().GetAwaiter().GetResult();
+         Console.ReadKey();
+      }
 
       private static async Task MainAsync()
       {
@@ -17,21 +20,13 @@ namespace Collectly.Test
          // discover endpoints from metadata
          var disco = await DiscoveryClient.GetAsync("http://localhost:6553");
          if (disco.IsError)
-         {
-            Console.WriteLine(disco.Error);
-            return;
-         }
+         { Console.WriteLine(disco.Error); return; }
 
          // request token
          var tokenClient = new TokenClient(disco.TokenEndpoint, "apiClientID", "apiClientSecret");
-         // var tokenResponse = await tokenClient.RequestClientCredentialsAsync("apiName");
-         var tokenResponse = await tokenClient.RequestResourceOwnerPasswordAsync("lcjohnny@hotmail.com", "abc1234", "apiName");
-
+         var tokenResponse = await tokenClient.RequestResourceOwnerPasswordAsync("leverson", "abc1234", "apiName");
          if (tokenResponse.IsError)
-         {
-            Console.WriteLine(tokenResponse.Error);
-            return;
-         }
+         { Console.WriteLine(tokenResponse.Error); return; }
 
          Console.WriteLine(tokenResponse.Json);
          Console.WriteLine("\n\n");
@@ -42,16 +37,11 @@ namespace Collectly.Test
 
          var response = await client.GetAsync("http://localhost:6593/api/test");
          if (!response.IsSuccessStatusCode)
-         {
-            Console.WriteLine(response.StatusCode);
-         }
-         else
-         {
+         { Console.WriteLine(response.StatusCode); }
+         else {
             var content = await response.Content.ReadAsStringAsync();
             Console.WriteLine(JArray.Parse(content));
          }
-
-         Console.ReadKey();
 
       }
    }

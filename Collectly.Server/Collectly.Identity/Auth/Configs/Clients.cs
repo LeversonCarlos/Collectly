@@ -18,6 +18,7 @@ namespace Collectly.Auth
             {
                ClientId = ApiClientID,
                AllowedGrantTypes = GrantTypes.ResourceOwnerPasswordAndClientCredentials,
+               RequireConsent = false, 
 
                ClientSecrets =
                {
