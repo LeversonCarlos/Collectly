@@ -24,7 +24,8 @@ namespace Collectly.Test
 
          // request token
          var tokenClient = new TokenClient(disco.TokenEndpoint, "client", "secret");
-         var tokenResponse = await tokenClient.RequestClientCredentialsAsync("collectlyApi");
+         // var tokenResponse = await tokenClient.RequestClientCredentialsAsync("collectlyApi");
+         var tokenResponse = await tokenClient.RequestResourceOwnerPasswordAsync("lcjohnny", "abc1234", "collectlyApi");
 
          if (tokenResponse.IsError)
          {

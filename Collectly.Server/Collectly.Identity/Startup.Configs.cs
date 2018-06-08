@@ -1,4 +1,5 @@
 ﻿using IdentityServer4.Models;
+using IdentityServer4.Test;
 using System.Collections.Generic;
 
 namespace Collectly.Identity
@@ -24,7 +25,7 @@ namespace Collectly.Identity
                 new Client
                 {
                     ClientId = "client",
-                    AllowedGrantTypes = GrantTypes.ClientCredentials,
+                    AllowedGrantTypes = GrantTypes.ResourceOwnerPasswordAndClientCredentials,
 
                     ClientSecrets =
                     {
@@ -33,6 +34,25 @@ namespace Collectly.Identity
                     AllowedScopes = { "collectlyApi" }
                 }
             };
+      }
+
+      public static List<TestUser> GetUsers()
+      {
+         return new List<TestUser>
+         {
+            new TestUser
+               {
+                  SubjectId = "1",
+                  Username = "lcjohnny",
+                  Password = "abc1234"
+               },
+               new TestUser
+               {
+                  SubjectId = "2",
+                  Username = "test",
+                  Password = "test"
+               }
+         };
       }
 
    }
