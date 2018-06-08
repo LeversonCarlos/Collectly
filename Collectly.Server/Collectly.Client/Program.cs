@@ -23,9 +23,9 @@ namespace Collectly.Test
          }
 
          // request token
-         var tokenClient = new TokenClient(disco.TokenEndpoint, "client", "secret");
-         // var tokenResponse = await tokenClient.RequestClientCredentialsAsync("collectlyApi");
-         var tokenResponse = await tokenClient.RequestResourceOwnerPasswordAsync("lcjohnny", "abc1234", "collectlyApi");
+         var tokenClient = new TokenClient(disco.TokenEndpoint, "apiClientID", "apiClientSecret");
+         // var tokenResponse = await tokenClient.RequestClientCredentialsAsync("apiName");
+         var tokenResponse = await tokenClient.RequestResourceOwnerPasswordAsync("lcjohnny@hotmail.com", "abc1234", "apiName");
 
          if (tokenResponse.IsError)
          {
@@ -40,7 +40,7 @@ namespace Collectly.Test
          var client = new HttpClient();
          client.SetBearerToken(tokenResponse.AccessToken);
 
-         var response = await client.GetAsync("http://localhost:6593/test");
+         var response = await client.GetAsync("http://localhost:6593/api/test");
          if (!response.IsSuccessStatusCode)
          {
             Console.WriteLine(response.StatusCode);

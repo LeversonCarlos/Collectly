@@ -5,7 +5,7 @@ using System.Linq;
 namespace Collectly.API.Test
 {
 
-   [Route("[controller]")]
+   [Route("api/[controller]")]
    [Authorize]
    public class TestController : ControllerBase
    {
