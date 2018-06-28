@@ -2,9 +2,15 @@
 # This .gitignore file was automatically created by Microsoft(R) Visual Studio.
 ################################################################################
 
+# IDE
 .vs
 .vscode
 
+# COLLECTLY API
+/src/Collectly.API/bin
+/src/Collectly.API/obj
+
+# LEGACY
 /legacy/Collectly.API/bin
 /legacy/Collectly.API/obj
 /legacy/Collectly.Identity/bin
