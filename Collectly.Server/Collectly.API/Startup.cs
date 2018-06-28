@@ -16,12 +16,14 @@ namespace Collectly
             .AddJsonFormatters();
 
          services
-            .AddAuthentication("Bearer")
+            .AddAuthentication("Bearer")            
             .AddIdentityServerAuthentication(options =>
             {
                options.Authority = "http://localhost:6553";
                options.RequireHttpsMetadata = false;
                options.ApiName = "apiName";
+               options.ApiSecret = "apiClientSecret";
+               options.SupportedTokens = IdentityServer4.AccessTokenValidation.SupportedTokens.Both;
             });
 
       }

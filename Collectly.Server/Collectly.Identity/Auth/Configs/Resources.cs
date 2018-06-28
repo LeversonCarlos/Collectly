@@ -21,6 +21,9 @@ namespace Collectly.Auth
          {
             new IdentityResources.OpenId(),
             new IdentityResources.Profile(),
+            new IdentityResources.Email()
+            /* ,
+            new IdentityResource("Admin",new string[]{ "role" } ) */
          };
       }
 

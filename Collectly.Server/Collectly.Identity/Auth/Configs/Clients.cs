@@ -1,4 +1,5 @@
-﻿using IdentityServer4.Models;
+﻿using IdentityServer4;
+using IdentityServer4.Models;
 using System.Collections.Generic;
 
 namespace Collectly.Auth
@@ -17,15 +18,23 @@ namespace Collectly.Auth
             new Client
             {
                ClientId = ApiClientID,
-               AllowedGrantTypes = GrantTypes.ResourceOwnerPasswordAndClientCredentials,
-               RequireConsent = false, 
+               AllowedGrantTypes = GrantTypes.ResourceOwnerPasswordAndClientCredentials, 
 
                ClientSecrets =
                {
                   new Secret(ApiClientSecret.Sha256())
                },
-               AllowedScopes = { ApiName }
 
+               RequireConsent = false,
+               // AllowAccessTokensViaBrowser = true,
+               // AllowOfflineAccess = true, 
+               // AllowedCorsOrigins = { "http://localhost:5000" }
+               AllowedScopes = {
+                  IdentityServerConstants.StandardScopes.OpenId,
+                  IdentityServerConstants.StandardScopes.Profile,
+                  IdentityServerConstants.StandardScopes.Email,
+                  ApiName
+               }
             }
          };
       }

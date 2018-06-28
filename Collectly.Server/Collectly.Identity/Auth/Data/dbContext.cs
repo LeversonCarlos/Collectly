@@ -7,6 +7,9 @@ namespace Collectly.Auth.Data
    public class dbContext : IdentityDbContext<User>
    {
 
+      public DbSet<Client> Clients { get; set; }
+      public DbSet<Token> Tokens { get; set; }
+
       public dbContext(DbContextOptions<dbContext> options) : base(options)
       {
          // Configuration.ProxyCreationEnabled = false;
@@ -18,20 +21,17 @@ namespace Collectly.Auth.Data
       protected override void OnModelCreating(ModelBuilder modelBuilder)
       {
          base.OnModelCreating(modelBuilder);
-         modelBuilder.Entity<User>().ToTable("auth_identityUsers");
-         modelBuilder.Entity<Role>().ToTable("auth_identityRoles");
+         modelBuilder.Entity<User>(e => { e.ToTable("auth_identityUsers"); e.Property(p => p.Id).HasColumnName("UserID"); });
          modelBuilder.Entity<IdentityUser>().ToTable("auth_identityUsers");
+         modelBuilder.Entity<Role>(e => { e.ToTable("auth_identityRoles"); e.Property(p => p.Id).HasColumnName("RoleID"); });
          modelBuilder.Entity<IdentityRole>().ToTable("auth_identityRoles");
-         modelBuilder.Entity<IdentityUserRole<string>>().ToTable("auth_identityUserRoles");
-         modelBuilder.Entity<IdentityUserLogin<string>>().ToTable("auth_identityUserLogins");
-         modelBuilder.Entity<IdentityUserClaim<string>>().ToTable("auth_identityUserClaims");
-         modelBuilder.Entity<IdentityUserToken<string>>().ToTable("auth_identityUserTokens");
-         modelBuilder.Entity<IdentityRoleClaim<string>>().ToTable("auth_identityRoleClaims");
-         // modelBuilder.Entity<bindClient>().ToTable("auth_identityClients");
-         // modelBuilder.Entity<bindToken>().ToTable("auth_identityTokens");
-         // modelBuilder.Entity<bindSignature>().ToTable("auth_identitySignatures");
-         // modelBuilder.Entity<bindCustomer>().ToTable("auth_identityCustomers");
-         // modelBuilder.Entity<bindCustomerUser>().ToTable("auth_identityCustomersUsers");
+         modelBuilder.Entity<IdentityUserRole<string>>(e => { e.ToTable("auth_identityUserRoles"); e.Property(p => p.UserId).HasColumnName("UserID"); e.Property(p => p.RoleId).HasColumnName("RoleID"); });
+         modelBuilder.Entity<IdentityUserClaim<string>>(e => { e.ToTable("auth_identityUserClaims"); e.Property(p => p.UserId).HasColumnName("UserID"); });
+         modelBuilder.Entity<IdentityUserToken<string>>(e => { e.ToTable("auth_identityUserTokens"); e.Property(p => p.UserId).HasColumnName("UserID"); });
+         modelBuilder.Entity<IdentityUserLogin<string>>(e => { e.ToTable("auth_identityUserLogins"); e.Property(p => p.UserId).HasColumnName("UserID"); });
+         modelBuilder.Entity<IdentityRoleClaim<string>>(e => { e.ToTable("auth_identityRoleClaims"); e.Property(p => p.RoleId).HasColumnName("RoleID"); });
+         modelBuilder.Entity<Client>().ToTable("auth_identityClients");
+         modelBuilder.Entity<Token>().ToTable("auth_identityTokens");
       }
 
    }
