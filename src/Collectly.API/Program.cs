@@ -8,7 +8,9 @@ namespace Collectly.API
 
       public static void Main(string[] args)
       {
-         CreateWebHostBuilder(args).Build().Run();
+         CreateWebHostBuilder(args) 
+            .Build()
+            .Run();
       }
 
       public static IWebHostBuilder CreateWebHostBuilder(string[] args)
@@ -16,7 +18,6 @@ namespace Collectly.API
          return WebHost
             .CreateDefaultBuilder(args)
             .UseStartup<Startup>();
-
       }
 
    }
