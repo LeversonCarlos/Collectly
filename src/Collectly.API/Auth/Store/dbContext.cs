@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Collectly.Auth.Store
 {
-   internal class dbContext : IdentityDbContext<UserData>
+   internal class dbContext : IdentityDbContext<UserData, RoleData, string>
    {
 
       public dbContext(DbContextOptions options) : base(options)
