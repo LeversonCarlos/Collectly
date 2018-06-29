@@ -1,9 +1,8 @@
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.DependencyInjection;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace Collectly.Auth.Store
 {
@@ -27,7 +26,7 @@ namespace Collectly.Auth.Store
 
       private static async Task SeedRoles(IServiceScope appServices)
       {
-         var roleManager = appServices.ServiceProvider.GetService<RoleManager<Auth.Store.RoleData>>();
+         var roleManager = appServices.ServiceProvider.GetService<RoleManager<RoleData>>();
          if (roleManager == null) { return; }
          if (roleManager.Roles.Count() != 0) { return; }
          foreach (var roleName in roleList)

@@ -22,19 +22,20 @@ namespace Collectly.API
       {
 
          services
-            .AddDbContext<Auth.Store.dbContext>(options =>
+            .AddDbContext<dbContext>(options =>
             {
                options.UseSqlite(this.Configuration.GetConnectionString("AuthConnection"));
             });
 
          services
-            .AddIdentity<Auth.Store.UserData, Auth.Store.RoleData>()
-            .AddEntityFrameworkStores<Auth.Store.dbContext>()
+            .AddIdentity<UserData, RoleData>()
+            .AddEntityFrameworkStores<dbContext>()
+            .AddRoleManager<RoleManager<RoleData>>()
+            .AddUserManager<UserManager<UserData>>()
             .AddDefaultTokenProviders();
 
       }
 
-      // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
       public void Configure(IApplicationBuilder app, IHostingEnvironment env)
       {
          if (env.IsDevelopment())
@@ -49,5 +50,6 @@ namespace Collectly.API
             await context.Response.WriteAsync("Hello World!");
          });
       }
+
    }
 }

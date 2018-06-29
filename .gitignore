@@ -7,8 +7,10 @@
 .vscode
 
 # COLLECTLY API
-/src/Collectly.API/bin
-/src/Collectly.API/obj
+src/Collectly.API/bin
+src/Collectly.API/obj
+src/Collectly.API/Auth.db
+src/Collectly.API/Collectly.API.csproj.user
 
 # LEGACY
 /legacy/Collectly.API/bin
@@ -19,3 +21,5 @@
 /legacy/Collectly.Identity/Auth.db
 /legacy/Collectly.Client/bin
 /legacy/Collectly.Client/obj
+
+
