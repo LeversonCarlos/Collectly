@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -18,13 +19,11 @@ namespace Collectly.API
       public void ConfigureServices(IServiceCollection services)
       {
 
-         /*
          services
             .AddDbContext<Auth.Store.dbContext>(options =>
             {
                options.UseSqlite(this.Configuration.GetConnectionString("AuthConnection"));
             });
-         */
 
       }
 
