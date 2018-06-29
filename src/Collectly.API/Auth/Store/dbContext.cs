@@ -9,7 +9,7 @@ namespace Collectly.Auth.Store
 
       public dbContext(DbContextOptions options) : base(options)
       {
-         this.Database.EnsureCreated();
+         this.Database.EnsureCreated();         
       }
 
       protected override void OnModelCreating(ModelBuilder builder)

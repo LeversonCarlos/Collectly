@@ -15,7 +15,7 @@
    dotnet new -h
    ```
 
-# Add the Microsoft.AspNetCore.All metapakage through nuget
+# Add the AspNetCore metapakage through nuget
    ```
    dotnet add package Microsoft.AspNetCore.All --version 2.1.1
    ```
