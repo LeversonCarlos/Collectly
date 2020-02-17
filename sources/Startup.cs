@@ -19,6 +19,8 @@ namespace Collectly
       public void ConfigureServices(IServiceCollection services)
       {
          this.AddSettings(services);
+         this.AddLocalization(services);
+
          services.AddControllersWithViews();
          // In production, the Angular files will be served from this directory
          services.AddSpaStaticFiles(configuration =>
@@ -30,6 +32,7 @@ namespace Collectly
       public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
       {
          this.UseSettings(app, env);
+         this.UseLocalization(app, env);
 
          app.UseRouting();
 
