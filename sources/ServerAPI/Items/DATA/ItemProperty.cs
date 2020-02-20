@@ -20,8 +20,8 @@ namespace Collectly.API.Items
 
       [Required]
       public long LayoutTagID { get; set; }
-      [ForeignKey("LayoutID")]
-      public virtual Layouts.LayoutData LayoutDetails { get; set; }
+      [ForeignKey("LayoutTagID")]
+      public virtual Layouts.LayoutTagData LayoutTagDetails { get; set; }
 
       [StringLength(500)]
       public string ValueText { get; set; }
