@@ -1,3 +1,4 @@
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Collectly
@@ -7,6 +8,13 @@ namespace Collectly
 
       private void AddServices(IServiceCollection services)
       {
+
+         // DATA CONTEXT
+         services.AddDbContext<API.Base.dbContext>(x =>
+            x.UseSqlServer(this.AppSettings.ConnStr, opt =>
+            {
+               opt.MigrationsHistoryTable("collectly_v5_MigrationsHistory");
+            }));
 
       }
 
