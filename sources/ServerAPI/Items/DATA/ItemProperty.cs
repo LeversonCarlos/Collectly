@@ -26,6 +26,7 @@ namespace Collectly.API.Items
       [StringLength(500)]
       public string ValueText { get; set; }
 
+      [Column(TypeName = "decimal(15,4)")]
       public decimal? ValueNumeric { get; set; }
 
       public bool? ValueBoolean { get; set; }
