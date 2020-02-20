@@ -16,6 +16,9 @@ namespace Collectly
                opt.MigrationsHistoryTable("collectly_v5_MigrationsHistory");
             }));
 
+         // CONFIGURE INJECTION FOR DATA SERVICES
+         services.AddScoped<API.Collections.CollectionsService>();
+
       }
 
    }

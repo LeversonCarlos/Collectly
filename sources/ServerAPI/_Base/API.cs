@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Collectly.API.Base
 {
-   internal partial class BaseController : ControllerBase
+   public partial class BaseController : ControllerBase
    {
 
       protected readonly IServiceProvider serviceProvider;

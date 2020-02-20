@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Collectly.Migrations
 {
-    [DbContext(typeof(dbContext))]
+    [DbContext(typeof(BaseContext))]
     [Migration("20200220003107_CTL_200219")]
     partial class CTL_200219
     {

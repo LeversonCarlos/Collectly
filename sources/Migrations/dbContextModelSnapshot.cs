@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Collectly.Migrations
 {
-    [DbContext(typeof(dbContext))]
+    [DbContext(typeof(BaseContext))]
     partial class dbContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)
