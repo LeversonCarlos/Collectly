@@ -3,11 +3,11 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Collectly.API.Base
 {
-   internal partial class dbContext : DbContext, IDisposable
+   internal partial class BaseContext : DbContext, IDisposable
    {
 
       public IServiceProvider serviceProvider { get; set; }
-      public dbContext(DbContextOptions<dbContext> options, IServiceProvider _serviceProvider) : base(options)
+      public BaseContext(DbContextOptions<BaseContext> options, IServiceProvider _serviceProvider) : base(options)
       { this.serviceProvider = _serviceProvider; }
 
       protected override void OnModelCreating(ModelBuilder modelBuilder)

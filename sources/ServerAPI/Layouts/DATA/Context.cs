@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Collectly.API.Base
 {
-   partial class dbContext
+   partial class BaseContext
    {
 
       internal DbSet<Layouts.LayoutData> Layouts { get; set; }

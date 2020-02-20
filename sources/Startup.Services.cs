@@ -10,7 +10,7 @@ namespace Collectly
       {
 
          // DATA CONTEXT
-         services.AddDbContext<API.Base.dbContext>(x =>
+         services.AddDbContext<API.Base.BaseContext>(x =>
             x.UseSqlServer(this.AppSettings.ConnStr, opt =>
             {
                opt.MigrationsHistoryTable("collectly_v5_MigrationsHistory");
