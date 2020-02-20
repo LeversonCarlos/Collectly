@@ -21,6 +21,23 @@ namespace Collectly.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+            modelBuilder.Entity("Collectly.API.Collections.CollectionData", b =>
+                {
+                    b.Property<long>("CollectionID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Text")
+                        .IsRequired()
+                        .HasColumnType("varchar(500)")
+                        .HasMaxLength(500);
+
+                    b.HasKey("CollectionID");
+
+                    b.ToTable("collectly_v5_dataCollections");
+                });
+
             modelBuilder.Entity("Collectly.API.Layouts.LayoutData", b =>
                 {
                     b.Property<long>("LayoutID")

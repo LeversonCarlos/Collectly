@@ -8,6 +8,19 @@ namespace Collectly.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
+                name: "collectly_v5_dataCollections",
+                columns: table => new
+                {
+                    CollectionID = table.Column<long>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Text = table.Column<string>(type: "varchar(500)", maxLength: 500, nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_collectly_v5_dataCollections", x => x.CollectionID);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "collectly_v5_dataLayouts",
                 columns: table => new
                 {
@@ -51,6 +64,9 @@ namespace Collectly.Migrations
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropTable(
+                name: "collectly_v5_dataCollections");
+
             migrationBuilder.DropTable(
                 name: "collectly_v5_dataLayoutTags");
 
