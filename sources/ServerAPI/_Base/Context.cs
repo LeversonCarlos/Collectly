@@ -13,6 +13,7 @@ namespace Collectly.API.Base
       protected override void OnModelCreating(ModelBuilder modelBuilder)
       {
          this.OnModelCreating_Layouts(modelBuilder);
+         this.OnModelCreating_Collections(modelBuilder);
          base.OnModelCreating(modelBuilder);
       }
 
