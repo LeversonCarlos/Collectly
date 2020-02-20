@@ -14,7 +14,7 @@ namespace Collectly.API.Base
          modelBuilder.Entity<Layouts.LayoutTagData>()
             .HasIndex(x => new { x.LayoutID })
             .IncludeProperties(x => new { x.LayoutTagID })
-            .HasName("collectly_v5_dataLayoutTags_index_Layout");
+            .HasName("collectly_v5_dataLayoutTags_index");
       }
 
    }

@@ -14,6 +14,7 @@ namespace Collectly.API.Base
       {
          this.OnModelCreating_Layouts(modelBuilder);
          this.OnModelCreating_Collections(modelBuilder);
+         this.OnModelCreating_Items(modelBuilder);
          base.OnModelCreating(modelBuilder);
       }
 
