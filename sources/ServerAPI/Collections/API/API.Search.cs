@@ -57,9 +57,15 @@ namespace Collectly.API.Collections
 
       [HttpGet("search/{searchText}")]
       [HttpGet("search")]
-      public async Task<ActionResult<List<CollectionVM>>> GetDataAsync(string searchText = "")
+      public async Task<ActionResult<List<CollectionVM>>> SearchDataAsync(string searchText = "")
       {
          return await this.GetService<CollectionsService>().SearchDataAsync(searchText);
+      }
+
+      [HttpGet("{id:long}")]
+      public async Task<ActionResult<CollectionVM>> SearchDataAsync(long collectionID)
+      {
+         return await this.GetService<CollectionsService>().SearchDataAsync(collectionID);
       }
 
    }
