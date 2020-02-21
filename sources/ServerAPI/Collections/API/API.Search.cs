@@ -43,8 +43,7 @@ namespace Collectly.API.Collections
 
       internal IQueryable<CollectionData> GetDataQuery()
       {
-         // var resourceID = this.GetService<Helpers.User>().ResourceID;
-         var resourceID = "8a91eba3-00a1-4dab-893a-0fb9865f71ee";
+         var resourceID = this.GetService<Helpers.User>().ResourceID;
          return this.dbContext.Collections
             .Where(x => x.ResourceID == resourceID)
             .AsQueryable();

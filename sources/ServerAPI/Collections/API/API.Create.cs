@@ -14,7 +14,7 @@ namespace Collectly.API.Collections
       {
          try
          {
-            var resourceID = "8a91eba3-00a1-4dab-893a-0fb9865f71ee";
+            var resourceID = this.GetService<Helpers.User>().ResourceID;
 
             // VALIDATE DUPLICITY
             if (await this.GetDataQuery().CountAsync(x => x.CollectionID != value.CollectionID && x.Text == value.Text) != 0)
