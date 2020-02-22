@@ -1,21 +1,19 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using Microsoft.EntityFrameworkCore;
 
 namespace Collectly.API.Layouts
 {
    public enum LayoutTagEnum : short { Text = 0, Numeric = 1, Date = 2, Boolean = 3, ImageUrl = 4, LinkUrl = 5 };
 
-   [Table("collectly_v5_dataLayoutTags")]
-   internal class LayoutTagData
+   [Table("collectly_v5_dataTags")]
+   internal class TagData
    {
 
       [Key]
-      [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
-      public long LayoutTagID { get; set; }
+      public string TagID { get; set; }
 
       [Required]
-      public long LayoutID { get; set; }
+      public string LayoutID { get; set; }
       [ForeignKey("LayoutID")]
       public virtual Layouts.LayoutData LayoutDetails { get; set; }
 

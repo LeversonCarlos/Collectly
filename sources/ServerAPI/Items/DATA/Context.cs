@@ -7,7 +7,7 @@ namespace Collectly.API.Base
    {
 
       internal DbSet<Items.ItemData> Items { get; set; }
-      internal DbSet<Items.ItemPropertyData> ItemProperties { get; set; }
+      internal DbSet<Items.PropertyData> PropertyList { get; set; }
 
       private void OnModelCreating_Items(ModelBuilder modelBuilder)
       {
@@ -15,10 +15,10 @@ namespace Collectly.API.Base
             .HasIndex(x => new { x.ResourceID, x.LayoutID, x.CollectionID })
             .IncludeProperties(x => new { x.ItemID })
             .HasName("collectly_v5_dataItems_index");
-         modelBuilder.Entity<Items.ItemPropertyData>()
+         modelBuilder.Entity<Items.PropertyData>()
             .HasIndex(x => new { x.ItemID })
-            .IncludeProperties(x => new { x.ItemPropertyID })
-            .HasName("collectly_v5_dataItemProperties_index");
+            .IncludeProperties(x => new { x.PropertyID })
+            .HasName("collectly_v5_dataProperties_index");
       }
 
    }

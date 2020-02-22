@@ -7,6 +7,7 @@ namespace Collectly.API.Collections
 
       internal static CollectionVM Convert(CollectionData value)
       {
+         if (value == null) { return null; }
          return new CollectionVM
          {
             CollectionID = value.CollectionID,

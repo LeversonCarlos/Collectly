@@ -6,22 +6,22 @@ using Microsoft.EntityFrameworkCore;
 namespace Collectly.API.Items
 {
 
-   [Table("collectly_v5_dataItemProperties")]
-   internal class ItemPropertyData
+   [Table("collectly_v5_dataProperties")]
+   internal class PropertyData
    {
 
       [Key]
       [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
-      public long ItemPropertyID { get; set; }
+      public long PropertyID { get; set; }
 
       public long ItemID { get; set; }
       [ForeignKey("ItemID")]
       public virtual Items.ItemData ItemDetails { get; set; }
 
       [Required]
-      public long LayoutTagID { get; set; }
-      [ForeignKey("LayoutTagID")]
-      public virtual Layouts.LayoutTagData LayoutTagDetails { get; set; }
+      public string TagID { get; set; }
+      [ForeignKey("TagID")]
+      public virtual Layouts.TagData TagDetails { get; set; }
 
       [StringLength(500)]
       public string ValueText { get; set; }

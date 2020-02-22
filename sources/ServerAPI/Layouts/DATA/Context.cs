@@ -7,14 +7,14 @@ namespace Collectly.API.Base
    {
 
       internal DbSet<Layouts.LayoutData> Layouts { get; set; }
-      internal DbSet<Layouts.LayoutTagData> LayoutTags { get; set; }
+      internal DbSet<Layouts.TagData> Tags { get; set; }
 
       private void OnModelCreating_Layouts(ModelBuilder modelBuilder)
       {
-         modelBuilder.Entity<Layouts.LayoutTagData>()
+         modelBuilder.Entity<Layouts.TagData>()
             .HasIndex(x => new { x.LayoutID })
-            .IncludeProperties(x => new { x.LayoutTagID })
-            .HasName("collectly_v5_dataLayoutTags_index");
+            .IncludeProperties(x => new { x.TagID })
+            .HasName("collectly_v5_dataTags_index");
       }
 
    }

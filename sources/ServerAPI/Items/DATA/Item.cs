@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.EntityFrameworkCore;
@@ -18,7 +19,7 @@ namespace Collectly.API.Items
       public string ResourceID { get; set; }
 
       [Required]
-      public long LayoutID { get; set; }
+      public string LayoutID { get; set; }
       [ForeignKey("LayoutID")]
       public virtual Layouts.LayoutData LayoutDetails { get; set; }
 
@@ -31,6 +32,8 @@ namespace Collectly.API.Items
       public virtual Collections.CollectionData CollectionDetails { get; set; }
 
       public short? CollectionSequence { get; set; }
+
+      public virtual List<PropertyData> PropertyList { get; set; }
 
    }
 }

@@ -9,8 +9,7 @@ namespace Collectly.API.Layouts
    {
 
       [Key]
-      [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
-      public long LayoutID { get; set; }
+      public string LayoutID { get; set; }
 
       [Column(TypeName = "varchar(500)")]
       [Required, StringLength(500)]
