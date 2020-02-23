@@ -20,8 +20,6 @@ namespace Collectly.API.Items
 
       [Required]
       public string LayoutID { get; set; }
-      [ForeignKey("LayoutID")]
-      public virtual Layouts.LayoutData LayoutDetails { get; set; }
 
       [Column(TypeName = "varchar(500)")]
       [Required, StringLength(500)]
