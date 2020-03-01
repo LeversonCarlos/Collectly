@@ -33,5 +33,7 @@ namespace Collectly.API.Items
 
       public virtual List<PropertyData> PropertyList { get; set; }
 
+      public long? OriginalItemID { get; set; }
+
    }
 }

@@ -12,6 +12,10 @@ namespace Collectly.API.Base
 
       protected override void OnModelCreating(ModelBuilder modelBuilder)
       {
+
+         // modelBuilder.Ignore<Items.ItemData>();
+         // modelBuilder.Ignore<Items.PropertyData>();
+
          this.OnModelCreating_Layouts(modelBuilder);
          this.OnModelCreating_Collections(modelBuilder);
          this.OnModelCreating_Items(modelBuilder);
@@ -19,7 +23,7 @@ namespace Collectly.API.Base
       }
 
       /*
-         dotnet ef migrations add CTL_200219
+         dotnet ef migrations add CTL_200301
          dotnet ef database update
        */
 
